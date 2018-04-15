@@ -75,6 +75,7 @@ public class GameController : MonoBehaviour
         {
             playerScore += currentRoundData.pointsAddedForCorrectAnswer;
             scoreDisplayText.text = "Score: " + playerScore.ToString();
+            //save "correct" answer and qustion number
         }
 
         if (questionPool.Length > questionIndex + 1)
@@ -84,6 +85,7 @@ public class GameController : MonoBehaviour
         }
         else
         {
+            //save "Incorrect" answer and qustion number
             EndRound();
         }
 

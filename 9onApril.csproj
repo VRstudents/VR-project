@@ -431,6 +431,7 @@
     <Compile Include="Assets\DOORS.cs" />
     <Compile Include="Assets\scripts\AnswerButton.cs" />
     <Compile Include="Assets\scripts\AnswerData.cs" />
+    <Compile Include="Assets\scripts\convert.cs" />
     <Compile Include="Assets\scripts\DataController.cs" />
     <Compile Include="Assets\scripts\GameController.cs" />
     <Compile Include="Assets\scripts\MenuScreenController.cs" />

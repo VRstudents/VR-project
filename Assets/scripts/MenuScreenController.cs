@@ -9,4 +9,8 @@ public class MenuScreenController : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+    public void SWITCH()
+    {
+        SceneManager.LoadScene("persistent");
+    }
 }
