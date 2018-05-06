@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public Transform answerButtonParent;
     public GameObject questionDisplay;
     public GameObject roundEndDisplay;
+    public Text highScoreDisplay;
 
     private DataController dataController;
     private RoundData currentRoundData;
@@ -95,13 +96,15 @@ public class GameController : MonoBehaviour
     {
         isRoundActive = false;
 
+        dataController.SubmitNewPlayerScore(playerScore);
+
         questionDisplay.SetActive(false);
         roundEndDisplay.SetActive(true);
     }
 
     public void ReturnToMenu()
     {
-        SceneManager.LoadScene("MenuScreen");
+        SceneManager.LoadScene("Room");
     }
 
     private void UpdateTimeRemainingDisplay()
