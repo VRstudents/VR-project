@@ -10,7 +10,8 @@ public class manager : MonoBehaviour {
     public Sprite cardBack;
     public GameObject[] cards;
     public Text matchText;
-
+    public GameObject roundEndDisplay;
+    public GameObject canvas;
     private bool _init = false;
     private int _matches = 5;
 
@@ -85,7 +86,12 @@ public class manager : MonoBehaviour {
             _matches--;
             matchText.text = "Number of Matches: " + _matches;
             if (_matches == 0)
-            SceneManager.LoadScene("Room");
+            {
+                canvas.SetActive(false);
+                roundEndDisplay.SetActive(true);
+        
+               SceneManager.LoadScene("Room");
+            }
         }
         for (int i = 0; i < c.Count; i++)
         {

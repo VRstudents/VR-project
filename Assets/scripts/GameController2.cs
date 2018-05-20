@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Text;
 
-public class GameController : MonoBehaviour
+public class GameController2 : MonoBehaviour
 {
     public Text questionDisplayText;
     public Text scoreDisplayText;
@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     public GameObject roundEndDisplay;
     public Text highScoreDisplay;
 
-    private DataController dataController;
+    private DataController2 dataController;
     private RoundData currentRoundData;
     private QuestionData[] questionPool;
 
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        dataController = FindObjectOfType<DataController>();
+        dataController = FindObjectOfType<DataController2>();
         currentRoundData = dataController.GetCurrentRoundData();
         questionPool = currentRoundData.questions;
         timeRemaining = currentRoundData.timeLimitInSeconds;
@@ -54,8 +54,8 @@ public class GameController : MonoBehaviour
             answerButtonGameObjects.Add(answerButtonGameObject);
             answerButtonGameObject.transform.SetParent(answerButtonParent);
 
-            AnswerButton answerButton = answerButtonGameObject.GetComponent<AnswerButton>();
-            answerButton.Setup(questionData.answers[i]);
+            AnswerButton2 answerButton = answerButtonGameObject.GetComponent<AnswerButton2>();
+            answerButton.Setup1(questionData.answers[i]);
         }
     }
 
@@ -110,7 +110,6 @@ public class GameController : MonoBehaviour
     {
         timeRemainingDisplayText.text = "Time: " + Mathf.Round(timeRemaining).ToString();
     }
-
     private void SendQustionPerAnswer(int qustionNum, bool result)//לזכור להעתיק את זה לכל אחד מהמשחקים
     {
         Qustion_Answer Qjson = new Qustion_Answer();
@@ -119,7 +118,7 @@ public class GameController : MonoBehaviour
             { "Content-Type", "application/json" }
         };
         Qjson.StudentId = PlayerPrefs.GetInt("studentId");
-        Qjson.LessonId = PlayerPrefs.GetInt("LessonMathId");
+        Qjson.LessonId = 2;
         //PlayerPrefs.GetInt("mathLassonId");// ליצור משתנה בשאר מסכים
         Qjson.QustionNum = qustionNum;
         Qjson.Result = result;

@@ -2,20 +2,20 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class AnswerButton : MonoBehaviour
+public class AnswerButton2 : MonoBehaviour
 {
 
     public Text answerText;
     private AnswerData answerData;
-    private GameController gameController;
+    private GameController2 gameController;
 
     // Use this for initialization
     void Start()
     {
-        gameController = FindObjectOfType<GameController>();
+        gameController = FindObjectOfType<GameController2>();
     }
 
-    public void Setup(AnswerData data)
+    public void Setup1(AnswerData data)
     {
         answerData = data;
         answerText.text = answerData.answerText;
@@ -25,5 +25,6 @@ public class AnswerButton : MonoBehaviour
     public void HandleClick()
     {
         gameController.AnswerButtonClicked(answerData.isCorrect);
+      
     }
 }

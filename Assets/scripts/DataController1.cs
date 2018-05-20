@@ -3,13 +3,12 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.IO;                                                        // The System.IO namespace contains functions related to loading and saving files
 using System;
-
-public class DataController : MonoBehaviour
+public class DataController1 : MonoBehaviour
 {
     private RoundData[] allRoundData;
     private PlayerProgress playerProgress;
     Scene m_scene;
-    private string gameDataFileName = "data.json";
+    private string gameDataFileName = "data2.txt";
 
     void Start()
     {
@@ -23,7 +22,7 @@ public class DataController : MonoBehaviour
         // If we wanted to return different rounds, we could do that here
         // We could store an int representing the current round index in PlayerProgress
 
-        return allRoundData[playerProgress.currentRound];
+        return allRoundData[0];
     }
 
     public void SubmitNewPlayerScore(int newScore)
@@ -43,8 +42,6 @@ public class DataController : MonoBehaviour
 
     private void LoadGameData()
     {
-
-
         // Path.Combine combines strings into a file path
         // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
         string filePath = "";
@@ -56,7 +53,7 @@ public class DataController : MonoBehaviour
 #else
         filePath = Path.Combine(Application.streamingAssetsPath, gameDataFileName);
 #endif
-
+        
         // Get the file content by using the WWW object (it handles the Android file-system correctly)
         WWW wwwfile = new WWW(filePath);
         while (!wwwfile.isDone) { }
@@ -78,15 +75,10 @@ public class DataController : MonoBehaviour
 
             throw;
         }
-       
+    }
 
-
-
-
-}
-
-// This function could be extended easily to handle any additional data we wanted to store in our PlayerProgress object
-private void LoadPlayerProgress()
+    // This function could be extended easily to handle any additional data we wanted to store in our PlayerProgress object
+    private void LoadPlayerProgress()
     {
         // Create a new PlayerProgress object
         playerProgress = new PlayerProgress();
